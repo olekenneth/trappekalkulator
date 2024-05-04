@@ -53,7 +53,7 @@ const CanvasComponent = ({ labels }) => {
 };
 
 export default function Trapp() {
-  const [c, setC] = useState(200);
+  const [c, setC] = useState(315);
   const [angleA, setAngleA] = useState(30);
   const [labels, setLabels] = useState(null);
 
@@ -66,9 +66,9 @@ export default function Trapp() {
     const angleB = 90;
 
     setLabels({
-      sideA: Number(a).toFixed(2),
-      sideB: Number(b).toFixed(2),
-      sideC: Number(c).toFixed(2),
+      sideA: Number(a).toFixed(0),
+      sideB: Number(b).toFixed(0),
+      sideC: Number(c).toFixed(0),
       angleA: angleA,
       angleB: angleB,
       angleC: 180 - angleA - angleB,
@@ -82,48 +82,42 @@ export default function Trapp() {
       </h1>
 
       <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
-        <form style={{ width: "200px" }}>
-          <div>
-            <label
-              htmlFor="c"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Lengde C
-            </label>
-            <div className="relative mt-2 rounded-md shadow-sm">
-              <input
-                onChange={(event) => setC(event.target.value)}
-                type="number"
-                name="c"
-                id="c"
-                defaultValue="315"
-                className="block w-full rounded-md border-0 py-1.5 pl-2 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
+        <div>
+          <label
+            htmlFor="c"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Lengde C
+          </label>
+          <div className="relative mt-2 rounded-md shadow-sm">
+            <input
+              onChange={(event) => setC(event.target.value)}
+              type="number"
+              name="c"
+              id="c"
+              defaultValue="315"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            />
           </div>
-          <div>
-            <label
-              htmlFor="c"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              ∠ A
-            </label>
-            <div className="relative mt-2 rounded-md shadow-sm">
-              <input
-                onChange={(event) => setAngleA(event.target.value)}
-                type="number"
-                name="a"
-                id="a"
-                defaultValue="30"
-                className="block w-full rounded-md border-0 py-1.5 pl-2 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
+        </div>
+        <div>
+          <label
+            htmlFor="c"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            ∠ A
+          </label>
+          <div className="relative mt-2 rounded-md shadow-sm">
+            <input
+              onChange={(event) => setAngleA(event.target.value)}
+              type="number"
+              name="a"
+              id="a"
+              defaultValue="30"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            />
           </div>
-
-          <button className="py-2 px-4 bg-purple-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-75">
-            Lagre
-          </button>
-        </form>
+        </div>
       </div>
       <CanvasComponent labels={labels} />
     </>
