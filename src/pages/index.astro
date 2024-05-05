@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import Trapp from '../components/Trapp.tsx';
+import Stair from '../components/Stair.tsx';
 ---
 
 <Layout title="Stair Calculator">
 	<main>
-    <Trapp client:only="react"/>
+    <Stair client:only="react"/>
 	</main>
 </Layout>
 
@@ -16,8 +16,5 @@ import Trapp from '../components/Trapp.tsx';
 		padding: 1rem;
 		width: 800px;
 		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
 	}
 </style>
