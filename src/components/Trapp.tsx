@@ -78,7 +78,7 @@ export default function Trapp() {
   return (
     <>
       <h1 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        Trappekalkulator
+        Stair Calculator 
       </h1>
 
       <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
