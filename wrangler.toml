@@ -1,0 +1,11 @@
+name = "trappekalkulator"
+compatibility_date = "2024-03-19"
+
+[build]
+command = "npm run build"
+cwd = "."
+watch_dir = "src"
+
+[build.upload]
+format = "service-worker"
+dir = "dist"
