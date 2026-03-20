@@ -40,29 +40,29 @@ export function StairDiagram({ dimensions, steps, unit }) {
     const risePerStep = dimensions.height / steps;
     const runPerStep = dimensions.length / steps;
     
-    // Start from right corner and go up-left
+    // Steps should lie on top of hypotenuse C, starting from top going down
     for (let i = 0; i < steps; i++) {
       const currentHeight = i * risePerStep * scale;
       const nextHeight = (i + 1) * risePerStep * scale;
-      const currentLengthFromRight = i * runPerStep * scale;
-      const nextLengthFromRight = (i + 1) * runPerStep * scale;
+      const currentLength = i * runPerStep * scale;
+      const nextLength = (i + 1) * runPerStep * scale;
       
-      // Horizontal tread (innsteg) - goes from right to left
-      stepLines.push({
-        type: 'horizontal',
-        x1: points.right.x - currentLengthFromRight,
-        y1: baseY - currentHeight,
-        x2: points.right.x - nextLengthFromRight,
-        y2: baseY - currentHeight,
-      });
-      
-      // Vertical riser (opptrinn) - goes up
+      // Vertical riser (opptrinn) - down from current position
       stepLines.push({
         type: 'vertical',
-        x1: points.right.x - nextLengthFromRight,
-        y1: baseY - currentHeight,
-        x2: points.right.x - nextLengthFromRight,
-        y2: baseY - nextHeight,
+        x1: baseX + currentLength,
+        y1: points.top.y + currentHeight,
+        x2: baseX + currentLength,
+        y2: points.top.y + nextHeight,
+      });
+      
+      // Horizontal tread (innsteg) - to the right
+      stepLines.push({
+        type: 'horizontal',
+        x1: baseX + currentLength,
+        y1: points.top.y + nextHeight,
+        x2: baseX + nextLength,
+        y2: points.top.y + nextHeight,
       });
     }
   }
