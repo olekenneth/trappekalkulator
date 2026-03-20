@@ -7,7 +7,7 @@ import { useState } from 'react';
 export function useLanguage() {
   const [language] = useState(() => {
     const browserLang = navigator.language || navigator.userLanguage;
-    return browserLang.toLowerCase().startsWith('no') ? 'no' : 'en';
+    return (browserLang.toLowerCase().indexOf('no') !== -1) ? 'no' : 'en';
   });
 
   return language;
